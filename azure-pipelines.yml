@@ -18,7 +18,7 @@ jobs:
   - task: AzureCLI@1
     displayName: 'Deploy Builder VM to Azure'
     inputs:
-      azureSubscription: '[Insert Subscription Here]'
+      azureSubscription: '86815ae6-1e4c-431b-bbc4-ac307125cbd8'
       scriptPath: 'create-inception.sh'
       arguments: '$(resource-group) $(region) $(vm-name) $(vm-password)'
 
@@ -37,7 +37,7 @@ jobs:
   - task: AzureCLI@1
     displayName: 'Run Packer Build on Builder VM'
     inputs:
-      azureSubscription: '[Insert Subscription Here]'
+      azureSubscription: '86815ae6-1e4c-431b-bbc4-ac307125cbd8'
       scriptPath: 'run-packer-build.sh'
       arguments: '$(resource-group) $(vm-name)'
 
@@ -59,7 +59,7 @@ jobs:
   - task: AzureCLI@1
     displayName: 'Run Upload VHD'
     inputs:
-      azureSubscription: '[Insert Subscription Here]'
+      azureSubscription: '86815ae6-1e4c-431b-bbc4-ac307125cbd8'
       scriptPath: 'run-upload-vhd.sh'
       arguments: '$(resource-group) $(vm-name) $(storage-account-name) $(storage-container-name) $(base-image-name) $(Build.BuildId)'
 
